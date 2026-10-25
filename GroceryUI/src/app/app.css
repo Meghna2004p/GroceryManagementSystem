@@ -1,0 +1,374 @@
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1f3d2b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f3f8f3;
+  color: #1f3d2b;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ==============================
+   MAIN APP LAYOUT
+============================== */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4faf4, #edf6ed);
+}
+
+/* ==============================
+   LEFT SIDEBAR
+============================== */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  padding: 26px 16px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #14532d, #166534, #15803d);
+  color: #ffffff;
+  box-shadow: 4px 0 18px rgba(20, 83, 45, 0.12);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-icon {
+  font-size: 32px;
+}
+
+.sidebar-brand h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.menu-heading {
+  margin: 28px 10px 12px;
+  color: #bbf7d0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: #dcfce7;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-menu a span {
+  font-size: 19px;
+}
+
+.sidebar-menu a:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
+}
+
+.sidebar-menu a.active {
+  background: #dcfce7;
+  color: #166534;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 22px 8px 0;
+  color: #bbf7d0;
+  font-size: 12px;
+}
+
+/* ==============================
+   RIGHT CONTENT AREA
+============================== */
+
+.main-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.topbar {
+  min-height: 76px;
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: #ffffff;
+  border-bottom: 1px solid #dcebdd;
+  box-shadow: 0 3px 12px rgba(22, 101, 52, 0.04);
+}
+
+.topbar h2 {
+  margin: 0;
+  color: #166534;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.topbar-label {
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.page-content {
+  min-height: calc(100vh - 76px);
+  padding: 28px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(187, 247, 208, 0.2),
+      transparent 35%
+    ),
+    #f5faf5;
+}
+
+/* ==============================
+   PAGE HEADINGS
+============================== */
+
+.page-content h2 {
+  margin-top: 0;
+  color: #166534;
+  font-size: 29px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.page-content h3 {
+  color: #267344;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ==============================
+   FORMS AND INPUTS
+============================== */
+
+.page-content label {
+  display: block;
+  margin-bottom: 7px;
+  color: #285c3a;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.page-content input,
+.page-content select,
+.page-content textarea {
+  max-width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #c9dfcd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f3d2b;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.page-content input:focus,
+.page-content select:focus,
+.page-content textarea:focus {
+  border-color: #22a052;
+  box-shadow: 0 0 0 3px rgba(34, 160, 82, 0.12);
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.page-content button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #198443;
+  color: #ffffff;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.page-content button:hover {
+  background: #166534;
+}
+
+.page-content button:active {
+  transform: scale(0.98);
+}
+
+/* ==============================
+   TABLES
+============================== */
+
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(22, 101, 52, 0.07);
+}
+
+.page-content table th {
+  padding: 14px 12px;
+  background: #e0f2e4;
+  color: #166534;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.page-content table td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e8f1e9;
+  color: #334b3a;
+  font-size: 14px;
+}
+
+.page-content table tbody tr:hover {
+  background: #f1faf2;
+}
+
+/* ==============================
+   CARDS AND FORMS
+============================== */
+
+.page-content .product-form,
+.page-content .category-card,
+.page-content .dashboard-card {
+  border: 1px solid #d9eadc;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(22, 101, 52, 0.07);
+}
+
+/* ==============================
+   LOW STOCK LABELS
+============================== */
+
+.low-stock {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.normal-stock {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 650;
+}
+
+/* ==============================
+   RESPONSIVE LAYOUT
+============================== */
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 180px;
+    min-width: 180px;
+    padding: 18px 10px;
+  }
+
+  .sidebar-brand {
+    gap: 8px;
+    padding: 0 4px 20px;
+  }
+
+  .brand-icon {
+    font-size: 25px;
+  }
+
+  .sidebar-brand h2 {
+    font-size: 14px;
+  }
+
+  .sidebar-menu a {
+    gap: 8px;
+    padding: 11px 9px;
+    font-size: 13px;
+  }
+
+  .topbar {
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+
+  .topbar h2 {
+    font-size: 18px;
+  }
+
+  .page-content {
+    padding: 16px;
+    overflow-x: auto;
+  }
+
+  .page-content h2 {
+    font-size: 24px;
+  }
+
+  .page-content h3 {
+    font-size: 18px;
+  }
+
+  .page-content table {
+    min-width: 600px;
+  }
+}

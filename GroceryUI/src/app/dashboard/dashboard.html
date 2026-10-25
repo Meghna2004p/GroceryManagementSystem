@@ -1,0 +1,74 @@
+
+<div class="dashboard">
+
+  <h2>Grocery Management Dashboard</h2>
+
+  <div class="dashboard-banner">
+    <img
+      src="/images/grocery-banner.jpg"
+      alt="Fresh groceries and vegetables"
+    />
+
+    <div class="banner-text">
+      <h1>Fresh Groceries, Happy Living!</h1>
+      <p>Manage your grocery products easily in one place.</p>
+    </div>
+  </div>
+
+  <div class="dashboard-cards">
+
+    <div class="card">
+      <div class="card-icon">🛍️</div>
+      <h3>Total Products</h3>
+      <p>{{ totalProducts }}</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📦</div>
+      <h3>Total Categories</h3>
+      <p>{{ totalCategories }}</p>
+    </div>
+
+   
+<div class="card low-stock-card">
+  <div class="card-icon">⚠️</div>
+  <h3>Low Stock Products</h3>
+  <p>{{ lowStockProducts }}</p>
+ <a
+  href="javascript:void(0)"
+  class="quick-action-link"
+  (click)="openLowStockProducts()"
+>
+  View Products →
+</a>
+</div>
+
+    
+<div class="quick-actions">
+  <h3>Quick Actions</h3>
+
+  <div class="quick-actions-list">
+    <a routerLink="/products" class="quick-action">
+      <span>🛍️</span>
+      <div>
+        <strong>Manage Products</strong>
+        <p>Add, edit and view grocery products</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a routerLink="/categories" class="quick-action">
+      <span>📦</span>
+      <div>
+        <strong>Manage Categories</strong>
+        <p>Organize your grocery categories</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+
+  </div>
+
+</div>

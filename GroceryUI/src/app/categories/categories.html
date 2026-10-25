@@ -1,0 +1,97 @@
+
+<div class="categories-page">
+
+  <div class="categories-header">
+    <div>
+      <h2>Product Categories</h2>
+      <p>Manage and organize your grocery categories.</p>
+    </div>
+
+    <div class="category-count">
+      Total Categories: {{ filteredCategories.length }}
+    </div>
+  </div>
+
+  <div class="category-toolbar">
+    <input
+      type="text"
+      name="searchText"
+      [(ngModel)]="searchText"
+      placeholder="Search category name..."
+    />
+  </div>
+
+  <div class="category-grid" *ngIf="filteredCategories.length > 0">
+    <div class="category-card" *ngFor="let category of filteredCategories">
+
+      <img
+        class="category-image"
+        [src]="'/images/' + category.categoryName.toLowerCase() + '.jpeg'"
+        [alt]="category.categoryName"
+        (error)="$any($event.target).style.display='none'"
+      />
+
+      <h3>{{ category.categoryName }}</h3>
+
+      <div class="category-actions">
+        <button
+          type="button"
+          class="edit-btn"
+          (click)="editCategory(category)"
+        >
+          Edit
+        </button>
+
+        <button
+          type="button"
+          class="delete-btn"
+          (click)="deleteCategory(category.categoryId)"
+        >
+          Delete
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="empty-message" *ngIf="filteredCategories.length === 0">
+    No matching categories found.
+  </p>
+
+  <section class="category-form-section">
+    <h3>{{ editingCategoryId !== null ? 'Update Category' : 'Add New Category' }}</h3>
+    <p class="form-description">Enter a category name below.</p>
+
+    <form class="category-form" (ngSubmit)="addCategory()">
+
+      <div class="form-field">
+        <label for="categoryName">Category Name</label>
+        <input
+          id="categoryName"
+          type="text"
+          name="categoryName"
+          [(ngModel)]="newCategory.categoryName"
+          placeholder="e.g. Fruits, Vegetables, Dairy"
+          required
+        />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="save-btn">
+          {{ editingCategoryId !== null ? 'Update Category' : 'Add Category' }}
+        </button>
+
+        <button
+          type="button"
+          class="cancel-btn"
+          *ngIf="editingCategoryId !== null"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+</div>

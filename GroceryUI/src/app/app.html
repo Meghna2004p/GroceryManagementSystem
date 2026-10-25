@@ -1,0 +1,47 @@
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">🛒</span>
+      <h2>Grocery<br>Management</h2>
+    </div>
+
+    <p class="menu-heading">MAIN MENU</p>
+
+    <nav class="sidebar-menu">
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <span>🏠</span>
+        Dashboard
+      </a>
+
+      <a routerLink="/products" routerLinkActive="active">
+        <span>🛍️</span>
+        Products
+      </a>
+
+      <a routerLink="/categories" routerLinkActive="active">
+        <span>📦</span>
+        Categories
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>🌿</span> Fresh & Easy Management
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <h2>Grocery Management System</h2>
+      <span class="topbar-label">Inventory Dashboard</span>
+    </header>
+
+    <main class="page-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+</div>
+
+<p-toast></p-toast>
