@@ -1,0 +1,68 @@
+
+<p-toast></p-toast>
+
+<div class="orders-container">
+  <div class="page-header">
+    <h2>📦 Manage Orders</h2>
+    <p>View customer orders and update their status.</p>
+  </div>
+
+  <div *ngIf="isLoading" class="message">
+    Loading orders...
+  </div>
+
+  <div
+    *ngIf="!isLoading && orders.length === 0"
+    class="empty-orders"
+  >
+    <div class="empty-icon">📦</div>
+    <h3>No orders found</h3>
+    <p>Customer orders will appear here.</p>
+  </div>
+
+  <div *ngIf="!isLoading && orders.length > 0" class="orders-list">
+    <div class="order-card" *ngFor="let order of orders">
+
+      <div class="order-header">
+        <h3>Order #{{ order.orderId }}</h3>
+        <span class="status">{{ order.status }}</span>
+      </div>
+
+      <div class="order-details">
+        <p>
+          <strong>Order Date:</strong>
+          {{ order.orderDate | date:'medium' }}
+        </p>
+
+        <p>
+          <strong>Total Amount:</strong>
+          <span class="amount">₹{{ order.totalAmount }}</span>
+        </p>
+
+        <div class="status-control">
+          <label [for]="'status-' + order.orderId">
+            Update Status
+          </label>
+
+          <select
+            [id]="'status-' + order.orderId"
+            [(ngModel)]="order.status"
+          >
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+
+          <button
+            type="button"
+            (click)="updateStatus(order)"
+          >
+            Update Status
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

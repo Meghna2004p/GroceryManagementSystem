@@ -1,0 +1,47 @@
+<p-toast>   </p-toast>
+<div class="customer-container">
+  <div class="page-header">
+    <div>
+      <h2>🛒 Fresh Groceries</h2>
+      <p>Choose your daily essentials</p>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="message">
+    Loading products...
+  </div>
+
+  <div *ngIf="!isLoading && products.length === 0" class="message">
+    No products available right now.
+  </div>
+
+  <div class="product-grid" *ngIf="!isLoading && products.length > 0">
+    <div class="product-card" *ngFor="let product of products">
+  <div class="product-image">
+  <img
+    [src]="'/images/' + product.productName.toLowerCase() + '.jpeg'"
+    [alt]="product.productName"
+  />
+</div>
+
+      <div class="product-details">
+        <h3>{{ product.productName }}</h3>
+
+        <p class="price">
+          ₹{{ product.price }}
+        </p>
+
+        <p class="stock" [class.out-of-stock]="product.stock <= 0">
+          {{ product.stock > 0 ? 'In Stock: ' + product.stock : 'Out of Stock' }}
+        </p>
+
+        <button
+  type="button"
+  [disabled]="product.stock <= 0"
+  (click)="addToCart(product)">
+  Add to Cart
+</button>
+      </div>
+    </div>
+  </div>
+</div>

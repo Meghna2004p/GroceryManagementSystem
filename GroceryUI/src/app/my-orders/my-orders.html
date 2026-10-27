@@ -1,0 +1,49 @@
+
+<div class="orders-container">
+  <div class="page-header">
+    <h2>📦 My Orders</h2>
+    <p>View your grocery orders and their status</p>
+  </div>
+
+  <div *ngIf="isLoading" class="message">
+    Loading orders...
+  </div>
+
+  <div *ngIf="!isLoading && orders.length === 0" class="empty-orders">
+    <div class="empty-icon">📦</div>
+    <h3>No orders yet!</h3>
+    <p>Your placed orders will appear here.</p>
+  </div>
+
+  <div *ngIf="!isLoading && orders.length > 0" class="orders-list">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-header">
+        <h3>Order #{{ order.orderId }}</h3>
+        <span class="status">{{ order.status }}</span>
+      </div>
+
+      <div class="order-details">
+        <p>
+          <strong>Order Date:</strong>
+          {{ order.orderDate | date:'medium' }}
+        </p>
+
+        <p>
+          <strong>Total Amount:</strong>
+          <span class="amount">₹{{ order.totalAmount }}</span>
+        </p>
+        
+<div class="ordered-items" *ngIf="getOrderItems(order).length > 0">
+  <h4>Items Ordered</h4>
+
+  <div class="ordered-item" *ngFor="let item of getOrderItems(order)">
+    <span>{{ item.productName || 'Product #' + item.productId }}</span>
+    <span>Qty: {{ item.quantity }}</span>
+    <span>₹{{ item.price }}</span>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>

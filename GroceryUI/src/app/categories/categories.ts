@@ -37,7 +37,7 @@ get filteredCategories(): any[] {
 loadCategories(): void {
   this.categoryService.getCategories().subscribe({
   next: (data) => {
-  console.log('Categories loaded:', data);
+  
   this.categories = data;
   this.cdRef.detectChanges();
 },

@@ -1,0 +1,162 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background: #f5f8f4;
+  color: #26352a;
+  font-family: Arial, sans-serif;
+}
+
+.cart-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 0 0 8px;
+  color: #216b3a;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.cart-container > p {
+  color: #68766b;
+  margin-bottom: 28px;
+}
+
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e3ebe2;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(35, 75, 42, 0.06);
+}
+
+.cart-item h3 {
+  width: 100%;
+  margin: 0;
+  color: #26352a;
+  font-size: 20px;
+}
+
+.cart-item p {
+  margin: 4px 0;
+  color: #68766b;
+}
+
+.cart-item p:nth-of-type(3) {
+  color: #218443;
+  font-weight: 700;
+}
+
+button {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #238443;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #176832;
+}
+
+button:disabled {
+  background: #aab7ac;
+  cursor: not-allowed;
+}
+
+.cart-container > div > h3 {
+  color: #216b3a;
+}
+
+.cart-container > div > button {
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 20px 12px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .cart-item {
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item button {
+    width: 100%;
+  }
+}
+
+.empty-cart {
+  max-width: 650px;
+  margin: 35px auto;
+  padding: 50px 25px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e3ebe2;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(35, 75, 42, 0.07);
+}
+
+.empty-cart-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf6ed;
+  border-radius: 50%;
+  font-size: 48px;
+}
+
+.empty-cart h3 {
+  margin: 0 0 12px;
+  color: #216b3a;
+  font-size: 25px;
+}
+
+.empty-cart p {
+  margin: 8px 0;
+  color: #68766b;
+  line-height: 1.6;
+}
+
+.empty-cart .empty-cart-hint {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.empty-cart button {
+  padding: 13px 25px;
+}
+
+@media (max-width: 600px) {
+  .empty-cart {
+    margin: 20px auto;
+    padding: 35px 18px;
+  }
+
+  .empty-cart h3 {
+    font-size: 22px;
+  }
+}

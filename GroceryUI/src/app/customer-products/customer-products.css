@@ -1,0 +1,124 @@
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f5f8f4;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  color: #26352a;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin: 0 0 8px;
+  color: #216b3a;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+p {
+  color: #68766b;
+}
+
+.products-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e3ebe2;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(35, 75, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(35, 75, 42, 0.12);
+}
+
+.product-card h3 {
+  color: #26352a;
+  font-size: 19px;
+  margin: 0 0 12px;
+}
+
+.product-card .price {
+  color: #218443;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.product-card .stock {
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+button {
+  width: 100%;
+  padding: 12px 16px;
+  background: #238443;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #176832;
+}
+
+button:disabled {
+  background: #aab7ac;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 20px 12px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+}
+.product-image {
+  width: 100%;
+  height: 160px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
